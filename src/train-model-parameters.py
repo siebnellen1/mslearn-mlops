@@ -49,6 +49,7 @@ def split_data(df):
 
 # function that trains the model
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
+    reg_rate = 0.2
     mlflow.log_param("Regularization rate", reg_rate)
     print("Training model...")
     model = LogisticRegression(C=1/reg_rate, solver="liblinear").fit(X_train, y_train)
